@@ -3,7 +3,7 @@
 | Chapter | Title | Contributors |
 |:-------:|-------|--------------|
 | 1 | Deep Generative Modeling | [Notion(bsh)](https://www.notion.so/Deep-Generative-Modeling-2d809834f7eb804293f7c7f748449e6a?source=copy_link), [Notion(CSJasper)](https://www.notion.so/Chapter-1-2fce1f6a0a1b80c0aac1e174f8cf419c?source=copy_link) |
-| 2 | Variational Perspective: From VAEs to DDPMs | [Notion(bsh)](https://www.notion.so/Variational-Perspective-From-VAEs-to-DDPMs-2d809834f7eb80878049cf32f4318f51?source=copy_link) |
+| 2 | Variational Perspective: From VAEs to DDPMs | [Notion(bsh)](https://www.notion.so/Variational-Perspective-From-VAEs-to-DDPMs-2d809834f7eb80878049cf32f4318f51?source=copy_link), [Notion(CSJasper, Part1)](https://www.notion.so/Variational-Perspective-From-VAEs-to-DDPMs-Part-1-305e1f6a0a1b80ada162fa85ebc4528f?source=copy_link) |
 | 3 | Score-Based Perspective: From EBMs to NCSN | [Notion(bsh)](https://www.notion.so/Score-Based-Perspective-From-EBMs-to-NCSN-2dc09834f7eb802e853cd3ccbfe86ba1?source=copy_link) |
 | 4 | Diffusion Models Today: Score SDE Framework | |
 | 5 | Flow-Based Perspective: From NFs to Flow Matching | |
