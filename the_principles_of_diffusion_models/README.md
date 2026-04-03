@@ -1,5 +1,25 @@
 # The Principles of Diffusion Models - Study Notes
 
+---
+
+## Study Materials
+
+---
+
+- [Issues](./issue/README.md)
+- [Questions](./question/README.md)
+
+---
+
+## Direct Links
+
+---
+
+- [Chapter 1 Issues](./issue/chapter_1/README.md)
+- [Chapter 2 Questions](./question/chapter_2/README.md)
+
+---
+
 | Chapter | Title | Contributors |
 |:-------:|-------|--------------|
 | 1 | Deep Generative Modeling | [Notion(bsh)](https://www.notion.so/Deep-Generative-Modeling-2d809834f7eb804293f7c7f748449e6a?source=copy_link), [Notion(CSJasper)](https://www.notion.so/Chapter-1-2fce1f6a0a1b80c0aac1e174f8cf419c?source=copy_link), [Notion(csh)](https://www.notion.so/1-Deep-Generative-Modeling-2fce230a85e580a1b890ca8ea3bd6a3f?source=copy_link) |
