@@ -17,6 +17,7 @@
 
 - [Chapter 1 Issues](./issue/chapter_1/README.md)
 - [Chapter 2 Questions](./question/chapter_2/README.md)
+- [Chapter 3 Questions](./question/chapter_3/README.md)
 
 ---
 
