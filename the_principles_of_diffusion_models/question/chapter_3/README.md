@@ -251,6 +251,89 @@ $$
 
 로 근사할 수 있습니다. 이때도 미분은 여전히 필요하지만, full Jacobian을 다루는 것이 아니라 랜덤 방향에 대한 Jacobian-vector product만 계산하면 됩니다.
 
+여기서 `Jv`라는 표기 때문에 마치 Jacobian `J`를 먼저 전부 계산해 둔 뒤 벡터 `v`를 곱하는 것처럼 보일 수 있습니다. 하지만 autodiff에서 실제로 하는 일은 보통 그것이 아닙니다.
+
+- 수학적으로는 Jacobian $J = \nabla_x f(x)$가 존재합니다.
+- 하지만 계산할 때는 `J` 전체를 명시적으로 만들지 않습니다.
+- 대신 어떤 방향벡터 `v`를 정하면, 그 방향으로의 미분값 `Jv`만 직접 계산합니다.
+
+즉 JVP는 실제로
+
+$$
+Jv
+=
+\left.\frac{d}{d\epsilon} f(x+\epsilon v)\right|_{\epsilon=0}
+$$
+
+를 계산하는 것입니다. 이 식은 "`x`를 `v` 방향으로 아주 조금 움직였을 때 출력 `f(x)`가 어떻게 변하는가?"를 뜻합니다. 그래서 `Jv`는 방향미분을 선형대수 표기로 쓴 것이라고 이해하면 됩니다.
+
+간단한 3차원 예시로 보면 더 직관적입니다. 함수 $f : \mathbb{R}^3 \to \mathbb{R}^3$를
+
+$$
+f(x_1,x_2,x_3)=
+\begin{bmatrix}
+x_1^2 + x_2 x_3 \\
+\sin(x_1) + x_2^2 \\
+x_1 x_3 + e^{x_2}
+\end{bmatrix}
+$$
+
+라고 하자. 그러면 Jacobian은 수학적으로
+
+$$
+J(x)=
+\begin{bmatrix}
+2x_1 & x_3 & x_2 \\
+\cos(x_1) & 2x_2 & 0 \\
+x_3 & e^{x_2} & x_1
+\end{bmatrix}
+$$
+
+입니다.
+
+이제
+
+$$
+x=(1,2,3), \qquad v=(1,-1,2)
+$$
+라고 하자. 이때 JVP는 `Jv`이지만, 실제 의미는
+
+$$
+\left.\frac{d}{d\epsilon} f(x+\epsilon v)\right|_{\epsilon=0}
+$$
+
+입니다. 먼저
+
+$$
+x+\epsilon v = (1+\epsilon,\, 2-\epsilon,\, 3+2\epsilon)
+$$
+
+이므로
+
+$$
+f(x+\epsilon v)=
+\begin{bmatrix}
+(1+\epsilon)^2 + (2-\epsilon)(3+2\epsilon) \\
+\sin(1+\epsilon) + (2-\epsilon)^2 \\
+(1+\epsilon)(3+2\epsilon) + e^{2-\epsilon}
+\end{bmatrix}
+$$
+
+입니다. 각 성분을 $\epsilon$으로 미분한 뒤 $\epsilon=0$을 대입하면
+
+$$
+Jv=
+\begin{bmatrix}
+3 \\
+\cos(1)-4 \\
+5-e^2
+\end{bmatrix}
+$$
+
+를 얻습니다.
+
+즉 autodiff는 보통 $3 \times 3$ Jacobian 전체를 만든 뒤 곱하는 것이 아니라, 방향벡터 $v$에 대한 이 결과만 직접 계산합니다. Hutchinson estimator에서는 이 $v$를 랜덤하게 뽑아서 같은 원리를 쓰는 것입니다.
+
 따라서 차이는 다음과 같습니다.
 
 - exact 방식: basis 방향 $e_i$를 모두 써야 해서 미분 관련 계산이 $D$번 필요합니다.
